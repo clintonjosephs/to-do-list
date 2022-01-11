@@ -10,9 +10,15 @@ export default class UpdateUI {
     const li = document.createElement('li');
     li.classList.add('item');
     if (!empty) {
-      li.innerHTML = `<input type="checkbox" id="${todo.index}" class="task-box">
-                        <span id="task-${todo.index}" contenteditable='false' class= "task-description"> ${todo.description} </span>
-                        <a href="#"><button class="remove"> <i class="fa fa-ellipsis-v" aria-hidden="true"></i><i id ="trash-${todo.index}" class="trash fa fa-trash" aria-hidden="true"></i> </button></a>`;
+      if (!todo.completed) {
+        li.innerHTML = `<input type="checkbox" id="${todo.index}" class="task-box">
+        <span id="task-${todo.index}" contenteditable='false' class= "task-description"> ${todo.description} </span>
+        <button class="remove"> <i class="fa fa-ellipsis-v" aria-hidden="true"></i><i id ="trash-${todo.index}" class="trash fa fa-trash" aria-hidden="true"></i> </button>`;
+      } else {
+        li.innerHTML = `<input type="checkbox" id="${todo.index}" class="task-box">
+        <span id="task-${todo.index}" contenteditable='false' class= "task-description completed"> ${todo.description} </span>
+        <button class="remove"> <i class="fa fa-ellipsis-v" aria-hidden="true"></i><i id ="trash-${todo.index}" class="trash fa fa-trash" aria-hidden="true"></i> </button>`;
+      }
     } else {
       li.innerHTML = '<span class= "item">Nothing on the list!</span>';
     }

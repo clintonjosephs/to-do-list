@@ -2,7 +2,7 @@
 
 "To-do list" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete. This simple website allows for doing that!
 
-![screenshot](assets/images/todo_list.png)
+![screenshot](assets/images/to_do_list_crud.png)
 
 ## Built With
 

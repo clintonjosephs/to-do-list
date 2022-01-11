@@ -1,22 +1,31 @@
 import storageManager from './Storage.js';
 
 export default class Todolist {
-  constructor(listObj) {
-    this.todoList = listObj;
-  }
-
-  add(description, completed = false) {
-    const index = this.todoList.length + 1;
-    this.todoList.push({
+  static add(description, completed = false) {
+    const todoList = storageManager.getData();
+    const index = todoList.length + 1;
+    todoList.push({
       description,
       completed,
       index,
     });
-    storageManager.storeData(this.todoList);
+    storageManager.storeData(todoList);
   }
 
-  remove(index) {
-    this.todoList = this.todoList.filter((todo) => todo.index !== index);
-    storageManager.storeData(this.todoList);
+  static remove(itemsToDelete) {
+    let todoList = storageManager.getData();
+    itemsToDelete.forEach((index) => {
+      todoList = todoList.filter((todo) => todo.index !== Number(index));
+    });
+    Todolist.updateToDoItemIndex(todoList);
+  }
+
+  static updateToDoItemIndex(todoList) {
+    let i = 0;
+    const { length } = todoList;
+    for (i; i < length; i += 1) {
+      todoList[i].index = i + 1;
+    }
+    storageManager.storeData(todoList);
   }
 }
