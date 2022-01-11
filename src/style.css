@@ -4,6 +4,7 @@ html * {
 
 body {
   background-color: rgb(240, 238, 238);
+  font-size: 18px;
 }
 
 .today-container {
@@ -145,6 +146,10 @@ body {
 #delete-to-do:active {
   transform: rotate(720deg);
   transition: 100ms ease;
+}
+
+.markDelete {
+    background-color: bisque;
 }
 
 .clear {
