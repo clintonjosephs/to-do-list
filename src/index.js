@@ -29,11 +29,11 @@ function addToList() {
 
 addListBtn.addEventListener('click', addToList);
 
-listContainer.addEventListener('click' , (e) => {
-    if (e.target.tagName === 'LI') {
-      const listId = e.target.children[0].id;
-      Method.markListForChanges(e.originalTarget, listId, listContainer);
-    }
+listContainer.addEventListener('click', (e) => {
+  if (e.target.tagName === 'LI') {
+    const listId = e.target.children[0].id;
+    Method.markListForChanges(e.originalTarget, listId, listContainer);
+  }
 });
 
 document.body.appendChild(component());

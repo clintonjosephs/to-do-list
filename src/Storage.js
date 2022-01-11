@@ -6,5 +6,4 @@ export default class storageManager {
   static getData() {
     return localStorage.getItem('todoList') ? JSON.parse(localStorage.getItem('todoList')) : [];
   }
-  
 }
