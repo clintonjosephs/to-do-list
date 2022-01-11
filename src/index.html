@@ -3,9 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First Webpack</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <title>To-Do List</title>
 </head>
 <body>
-    <h1>Hello webpack!</h1>
+    <ul class="container">
+        <li class="item today-container">
+            <div>Today's TO DO</div>
+            <a class="fa-input" href="#"> <i id="delete-to-do" class="fas fa-sync"></i></a>
+
+        </li>
+
+        <li class="item add-task-container">
+            <div><input type="text" class="input-task" placeholder="add task to your list ..."></div>
+            <button id="add" class="fa-input"><i class="fas fa-level-down-alt fa-rotate-90"></i></button>
+        </li>
+
+        <li class="populated-list">
+            <ul class="list">
+            </ul>
+        </li>
+        <li class="item clear"><div class="clear-all"><a id="clearall" href="#">Clear completed tasks</a></div></li>
+
+    </ul>
 </body>
 </html>
