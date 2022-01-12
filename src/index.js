@@ -19,7 +19,7 @@ const component = () => {
   const element = document.createElement('div');
   element.innerHTML = _;
   return element;
-}
+};
 
 const addToList = () => {
   if (listText.value !== '') {
@@ -27,7 +27,7 @@ const addToList = () => {
     ulManager.refreshUI();
     listText.value = '';
   }
-}
+};
 
 addListBtn.addEventListener('click', addToList);
 
@@ -37,7 +37,7 @@ listContainer.addEventListener('click', (e) => {
     Method.markListForChanges(e.originalTarget, listId, listContainer);
   } else if (e.target.tagName === 'INPUT') {
     const checkbox = e.target;
-    const id  = e.target.id;
+    const { id } = e.target;
     markCompleted(checkbox, id, listContainer);
   }
 });

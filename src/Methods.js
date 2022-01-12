@@ -10,12 +10,14 @@ export default class Methods {
   }
 
   markListForChanges = (li, id, listContainer) => {
-    //line 13 - 17 is for chases here a user selects items for delete and goes ahead to add another item
+    /* line 13 - 17 is for cases where a user selects items for delete */
+    /* and goes ahead to add to the list */
+
     const storedDataLength = storageManager.getData().length;
     if (this.Listlength < storedDataLength) {
-        this.itemsToDelete.length = 0;
+      this.itemsToDelete.length = 0;
     }
-    
+
     const taskDescription = li.children[1];
     const elipsis = li.lastChild.children[0];
     const deleteIcon = li.lastChild.children[1];
