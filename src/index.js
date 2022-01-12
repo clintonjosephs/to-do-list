@@ -4,7 +4,7 @@ import UpdateUI from './UpdateUI.js';
 import Todolist from './Todolist.js';
 import storageManager from './Storage.js';
 import Methods from './Methods.js';
-import {markCompleted, clearCompleted} from './Completed.js';
+import { markCompleted, clearCompleted } from './Completed.js';
 
 const listText = document.querySelector('.input-task');
 const addListBtn = document.querySelector('#add');

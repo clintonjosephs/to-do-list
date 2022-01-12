@@ -16,4 +16,4 @@ const clearCompleted = (listContainer) => {
   Methods.uIRefreshInstance(listContainer);
 };
 
-export {markCompleted, clearCompleted};
+export { markCompleted, clearCompleted };
