@@ -3,15 +3,24 @@ import Todolist from './Todolist.js';
 import UpdateUI from './UpdateUI.js';
 
 export default class Methods {
-  constructor(itemsToDelete = [], toogle = false) {
+  constructor(itemsToDelete = [], toogle = false, Listlength = 0) {
     this.itemsToDelete = itemsToDelete;
     this.toogle = toogle;
+    this.Listlength = Listlength;
   }
 
-  markListForChanges(li, id, listContainer) {
+  markListForChanges = (li, id, listContainer) => {
+    /* line 13 - 17 is for cases where a user selects items for delete */
+    /* and goes ahead to add to the list */
+
+    const storedDataLength = storageManager.getData().length;
+    if (this.Listlength < storedDataLength) {
+      this.itemsToDelete.length = 0;
+    }
+
     const taskDescription = li.children[1];
-    const elipsis = li.children[2].children[0];
-    const deleteIcon = li.children[2].children[1];
+    const elipsis = li.lastChild.children[0];
+    const deleteIcon = li.lastChild.children[1];
     const index = this.itemsToDelete.indexOf(id);
 
     if (index !== -1) {
@@ -20,6 +29,7 @@ export default class Methods {
     } else {
       this.toogle = true;
       this.itemsToDelete.push(id);
+      this.Listlength = storageManager.getData().length;
     }
 
     if (this.toogle) {
@@ -27,18 +37,22 @@ export default class Methods {
       elipsis.classList.add('trash');
       deleteIcon.classList.remove('trash');
       taskDescription.contentEditable = true;
+      taskDescription.focus();
+      taskDescription.classList.add('task-description-border');
     } else {
       li.classList.remove('markDelete');
       elipsis.classList.remove('trash');
       deleteIcon.classList.add('trash');
       taskDescription.contentEditable = false;
+      taskDescription.classList.remove('task-description-border');
+
       Methods.editTaskDescription(taskDescription, id);
     }
     this.addListenerForRemove(deleteIcon, listContainer);
     this.toogle = true;
   }
 
-  addListenerForRemove(deleteBtn, listContainer) {
+  addListenerForRemove = (deleteBtn, listContainer) => {
     deleteBtn.addEventListener('click', () => {
       Todolist.remove(this.itemsToDelete);
       this.itemsToDelete.length = 0;
@@ -46,13 +60,18 @@ export default class Methods {
     });
   }
 
-  static editTaskDescription(span, id) {
+  static editTaskDescription = (span, id) => {
+    const taskDescription = span.textContent;
     const toDoList = storageManager.getData();
-    toDoList[id - 1].description = span.textContent;
-    storageManager.storeData(toDoList);
+    if (taskDescription !== '') {
+      toDoList[id - 1].description = span.textContent;
+      storageManager.storeData(toDoList);
+    } else {
+      span.textContent = toDoList[id - 1].description;
+    }
   }
 
-  static uIRefreshInstance(listContainer) {
+  static uIRefreshInstance = (listContainer) => {
     const ulManager = new UpdateUI(listContainer, storageManager.getData());
     ulManager.refreshUI();
   }

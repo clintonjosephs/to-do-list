@@ -14,8 +14,16 @@ body {
   width: 50rem;
 }
 
+.task-description-border {
+  border: solid black 1px;
+  border-radius: 5px;
+  font-style: italic;
+}
+
 .task-description {
-  width: 50%;
+  display: inline-block;
+  max-width: 500px;
+  word-wrap: break-word;
 }
 
 .today-container div {
@@ -108,7 +116,7 @@ body {
 
 .clear-all a {
   text-decoration: none;
-  color: #8c9292;
+  color: black;
   border: none;
   font-size: larger;
   font-weight: lighter;
@@ -130,7 +138,7 @@ body {
 }
 
 .trash {
-  display: none;
+  visibility: hidden;
 }
 
 .trash-active {
