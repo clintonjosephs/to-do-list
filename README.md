@@ -14,7 +14,7 @@
 - Es6
 - WebPack
 
-[LIVE DEMO LINK](Coming soon)
+[LIVE DEMO LINK](https://clintonjosephs.github.io/to-do-list/)
 
 ## Get Started
 
