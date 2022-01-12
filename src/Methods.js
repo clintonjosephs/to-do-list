@@ -10,8 +10,8 @@ export default class Methods {
 
   markListForChanges(li, id, listContainer) {
     const taskDescription = li.children[1];
-    const elipsis = li.children[2].children[0];
-    const deleteIcon = li.children[2].children[1];
+    const elipsis = li.lastChild.children[0];
+    const deleteIcon = li.lastChild.children[1];
     const index = this.itemsToDelete.indexOf(id);
 
     if (index !== -1) {
@@ -27,11 +27,16 @@ export default class Methods {
       elipsis.classList.add('trash');
       deleteIcon.classList.remove('trash');
       taskDescription.contentEditable = true;
+      taskDescription.focus();
+      taskDescription.classList.add('task-description-border');
+      
     } else {
       li.classList.remove('markDelete');
       elipsis.classList.remove('trash');
       deleteIcon.classList.add('trash');
       taskDescription.contentEditable = false;
+      taskDescription.classList.remove('task-description-border');
+
       Methods.editTaskDescription(taskDescription, id);
     }
     this.addListenerForRemove(deleteIcon, listContainer);
@@ -47,9 +52,15 @@ export default class Methods {
   }
 
   static editTaskDescription(span, id) {
+    const taskDescription = span.textContent;
     const toDoList = storageManager.getData();
-    toDoList[id - 1].description = span.textContent;
-    storageManager.storeData(toDoList);
+    if (taskDescription !== "") {
+        toDoList[id - 1].description = span.textContent;
+        storageManager.storeData(toDoList);
+    } else {
+        span.textContent = toDoList[id - 1].description;
+    }
+   
   }
 
   static uIRefreshInstance(listContainer) {

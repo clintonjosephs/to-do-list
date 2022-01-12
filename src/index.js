@@ -4,10 +4,12 @@ import UpdateUI from './UpdateUI.js';
 import Todolist from './Todolist.js';
 import storageManager from './Storage.js';
 import Methods from './Methods.js';
+import Completed from './Completed.js';
 
 const listText = document.querySelector('.input-task');
 const addListBtn = document.querySelector('#add');
 const listContainer = document.querySelector('.list');
+const clearList = document.querySelector('.clear');
 const localStorage = storageManager.getData();
 
 const ulManager = new UpdateUI(listContainer, localStorage);
@@ -31,10 +33,19 @@ addListBtn.addEventListener('click', addToList);
 
 listContainer.addEventListener('click', (e) => {
   if (e.target.tagName === 'LI') {
-    const listId = e.target.children[0].id;
+    const listId = e.target.id.replace('list-','');
     Method.markListForChanges(e.originalTarget, listId, listContainer);
+  } else if (e.target.tagName === 'INPUT') { 
+    const checkbox = e.target;
+    const id = e.target.id;
+    Completed.markCompleted(checkbox, id, listContainer);
   }
 });
+
+clearList.addEventListener('click', () => {
+   Completed.clearCompleted(listContainer);
+});
+
 
 document.body.appendChild(component());
 window.onresize = ulManager.refreshUI();
