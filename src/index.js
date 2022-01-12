@@ -4,7 +4,7 @@ import UpdateUI from './UpdateUI.js';
 import Todolist from './Todolist.js';
 import storageManager from './Storage.js';
 import Methods from './Methods.js';
-import Completed from './Completed.js';
+import {markCompleted, clearCompleted} from './Completed.js';
 
 const listText = document.querySelector('.input-task');
 const addListBtn = document.querySelector('#add');
@@ -38,12 +38,12 @@ listContainer.addEventListener('click', (e) => {
   } else if (e.target.tagName === 'INPUT') {
     const checkbox = e.target;
     const { id } = e.target;
-    Completed.markCompleted(checkbox, id, listContainer);
+    markCompleted(checkbox, id, listContainer);
   }
 });
 
 clearList.addEventListener('click', () => {
-  Completed.clearCompleted(listContainer);
+  clearCompleted(listContainer);
 });
 
 document.body.appendChild(component());
