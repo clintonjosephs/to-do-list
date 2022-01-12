@@ -29,7 +29,6 @@ export default class Methods {
       taskDescription.contentEditable = true;
       taskDescription.focus();
       taskDescription.classList.add('task-description-border');
-      
     } else {
       li.classList.remove('markDelete');
       elipsis.classList.remove('trash');
@@ -54,13 +53,12 @@ export default class Methods {
   static editTaskDescription(span, id) {
     const taskDescription = span.textContent;
     const toDoList = storageManager.getData();
-    if (taskDescription !== "") {
-        toDoList[id - 1].description = span.textContent;
-        storageManager.storeData(toDoList);
+    if (taskDescription !== '') {
+      toDoList[id - 1].description = span.textContent;
+      storageManager.storeData(toDoList);
     } else {
-        span.textContent = toDoList[id - 1].description;
+      span.textContent = toDoList[id - 1].description;
     }
-   
   }
 
   static uIRefreshInstance(listContainer) {

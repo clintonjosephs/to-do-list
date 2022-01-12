@@ -15,15 +15,15 @@ body {
 }
 
 .task-description-border {
-    border: solid black 1px;
-    border-radius: 5px;
-    font-style: italic; 
+  border: solid black 1px;
+  border-radius: 5px;
+  font-style: italic;
 }
 
 .task-description {
-    display: inline-block;
-    max-width: 500px;
-    word-wrap: break-word;
+  display: inline-block;
+  max-width: 500px;
+  word-wrap: break-word;
 }
 
 .today-container div {
@@ -103,9 +103,6 @@ body {
   max-height: 300px;
 }
 
-.list li.hint { background: #fea; }
-.list li.active { background: #ffd4d4; }
-
 .populated-list {
   margin-left: -2.5rem;
   max-height: 100vh;
@@ -139,7 +136,6 @@ body {
   border: 3px solid gray;
   margin-right: 2rem;
 }
-
 
 .trash {
   visibility: hidden;

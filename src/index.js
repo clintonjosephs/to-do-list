@@ -33,19 +33,18 @@ addListBtn.addEventListener('click', addToList);
 
 listContainer.addEventListener('click', (e) => {
   if (e.target.tagName === 'LI') {
-    const listId = e.target.id.replace('list-','');
+    const listId = e.target.id.replace('list-', '');
     Method.markListForChanges(e.originalTarget, listId, listContainer);
-  } else if (e.target.tagName === 'INPUT') { 
+  } else if (e.target.tagName === 'INPUT') {
     const checkbox = e.target;
-    const id = e.target.id;
+    const { id } = e.target;
     Completed.markCompleted(checkbox, id, listContainer);
   }
 });
 
 clearList.addEventListener('click', () => {
-   Completed.clearCompleted(listContainer);
+  Completed.clearCompleted(listContainer);
 });
-
 
 document.body.appendChild(component());
 window.onresize = ulManager.refreshUI();

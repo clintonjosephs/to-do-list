@@ -1,6 +1,5 @@
 import storageManager from './Storage.js';
 
-
 export default class Todolist {
   static add(description, completed = false) {
     const todoList = storageManager.getData();
