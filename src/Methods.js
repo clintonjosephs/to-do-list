@@ -8,7 +8,7 @@ export default class Methods {
     this.toogle = toogle;
   }
 
-  markListForChanges(li, id, listContainer) {
+  markListForChanges = (li, id, listContainer) => {
     const taskDescription = li.children[1];
     const elipsis = li.lastChild.children[0];
     const deleteIcon = li.lastChild.children[1];
@@ -42,7 +42,7 @@ export default class Methods {
     this.toogle = true;
   }
 
-  addListenerForRemove(deleteBtn, listContainer) {
+  addListenerForRemove = (deleteBtn, listContainer) => {
     deleteBtn.addEventListener('click', () => {
       Todolist.remove(this.itemsToDelete);
       this.itemsToDelete.length = 0;
@@ -50,7 +50,7 @@ export default class Methods {
     });
   }
 
-  static editTaskDescription(span, id) {
+  static editTaskDescription = (span, id) => {
     const taskDescription = span.textContent;
     const toDoList = storageManager.getData();
     if (taskDescription !== '') {
@@ -61,7 +61,7 @@ export default class Methods {
     }
   }
 
-  static uIRefreshInstance(listContainer) {
+  static uIRefreshInstance = (listContainer) => {
     const ulManager = new UpdateUI(listContainer, storageManager.getData());
     ulManager.refreshUI();
   }

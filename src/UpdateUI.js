@@ -6,7 +6,7 @@ export default class UpdateUI {
     this.todoList = listObj;
   }
 
-  static createListDisplay(todo, empty = false) {
+  static createListDisplay = (todo, empty = false) => {
     const li = document.createElement('li');
     li.classList.add('item');
     li.id = `list-${todo.index}`;
@@ -26,7 +26,7 @@ export default class UpdateUI {
     return li;
   }
 
-  refreshUI() {
+  refreshUI = () => {
     this.todoList = storageManager.getData();
     while (this.showToDoElement.firstChild) {
       this.showToDoElement.removeChild(this.showToDoElement.firstChild);

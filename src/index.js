@@ -15,13 +15,13 @@ const localStorage = storageManager.getData();
 const ulManager = new UpdateUI(listContainer, localStorage);
 const Method = new Methods();
 
-function component() {
+const component = () => {
   const element = document.createElement('div');
   element.innerHTML = _;
   return element;
 }
 
-function addToList() {
+const addToList = () => {
   if (listText.value !== '') {
     Todolist.add(listText.value);
     ulManager.refreshUI();
@@ -37,7 +37,7 @@ listContainer.addEventListener('click', (e) => {
     Method.markListForChanges(e.originalTarget, listId, listContainer);
   } else if (e.target.tagName === 'INPUT') {
     const checkbox = e.target;
-    const { id } = e.target;
+    const id  = e.target.id;
     markCompleted(checkbox, id, listContainer);
   }
 });
