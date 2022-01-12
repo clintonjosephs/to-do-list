@@ -3,7 +3,5 @@ export default class storageManager {
     localStorage.setItem('todoList', JSON.stringify(todoList));
   }
 
-  static getData = () => {
-    return localStorage.getItem('todoList') ? JSON.parse(localStorage.getItem('todoList')) : [];
-  }
+  static getData = () => (localStorage.getItem('todoList') ? JSON.parse(localStorage.getItem('todoList')) : [])
 }

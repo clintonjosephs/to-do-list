@@ -1,4 +1,4 @@
-import storageManager from "./Storage.js";
+import storageManager from './Storage.js';
 
 export default class Todolist {
   static add = (description, completed = false) => {

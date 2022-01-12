@@ -3,12 +3,19 @@ import Todolist from './Todolist.js';
 import UpdateUI from './UpdateUI.js';
 
 export default class Methods {
-  constructor(itemsToDelete = [], toogle = false) {
+  constructor(itemsToDelete = [], toogle = false, Listlength = 0) {
     this.itemsToDelete = itemsToDelete;
     this.toogle = toogle;
+    this.Listlength = Listlength;
   }
 
   markListForChanges = (li, id, listContainer) => {
+    //line 13 - 17 is for chases here a user selects items for delete and goes ahead to add another item
+    const storedDataLength = storageManager.getData().length;
+    if (this.Listlength < storedDataLength) {
+        this.itemsToDelete.length = 0;
+    }
+    
     const taskDescription = li.children[1];
     const elipsis = li.lastChild.children[0];
     const deleteIcon = li.lastChild.children[1];
@@ -20,6 +27,7 @@ export default class Methods {
     } else {
       this.toogle = true;
       this.itemsToDelete.push(id);
+      this.Listlength = storageManager.getData().length;
     }
 
     if (this.toogle) {
