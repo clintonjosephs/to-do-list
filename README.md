@@ -9,31 +9,20 @@
 
 - HTML
 - CSS
-- Javascript
-- HTML& CSS & Javaascript Linters
-- Git
-- Es6
+- JavaScript
+- HTML& CSS & JavaScript Linters
+- GIT
+- ES6
 - WebPack
-- Minimalist design
 
-## Visit ToDo list App
+## Set up locally
 
-[Live Here](coming soon)
+- Open your terminal and run the following command: git clone https://github.com/clintonjosephs/to-do-list.git
+- Run the command "npm install"
+- Run the command "npm run build"
+- Run the command "npm run start"
 
-## Getting Started
-
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-clone repo: `git clone https://github.com/clintonjosephs/to-do-list.git`
-
-then
-`cd to-do-list`
-
-### Install
-
-run `npm install` to install dependencies
+Once you completed this steps you should see the app running at: http://localhost:8080/ in your browser.
 
 ## Author
 
