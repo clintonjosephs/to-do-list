@@ -1,9 +1,10 @@
-# To-do list
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-"To-do list" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete. This simple website allows for doing that!
+# A Todo App
 
-![screenshot](assets/images/todo_list_filter.png)
+![Todos](assets/images/todo_list_filter.png)
 
+"To-do list" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you manage them too!
 ## Built With
 
 - HTML
@@ -13,25 +14,28 @@
 - Git
 - Es6
 - WebPack
+- Minimalist design
 
-[LIVE DEMO LINK](https://clintonjosephs.github.io/to-do-list/)
+## Visit ToDo list App
 
-## Get Started
+[Live Here](coming soon)
 
-Please get your browser update.
-To get a local copy up and running follow these simple steps.
+## Getting Started
 
-Run the command below from the Terminal:
+To get a local copy up and running follow these simple example steps.
 
-      git clone <URL> in your terminal
+### Prerequisites
 
-      cd to-do-list
+clone repo: `git clone https://github.com/clintonjosephs/to-do-list.git`
 
-      Run npm install to install dependecies
+then
+`cd to-do-list`
 
-      start index.html
+### Install
 
-## Authors
+run `npm install` to install dependencies
+
+## Author
 
 👤 **Clinton Mbonu**
 
@@ -44,14 +48,18 @@ Run the command below from the Terminal:
 
 Contributions, issues, and feature requests are welcome!
 
+Feel free to check the [issues page](../../issues/).
+
 ## Show your support
 
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-Microverse Community
+- Hat tip to anyone whose code was used
+- Inspiration
+- Entire Microverse community
 
 ## 📝 License
 
-This project is [MIT](LICENSE) licensed.
+This project is [MIT](./MIT.md) licensed.
