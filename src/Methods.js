@@ -3,10 +3,10 @@ import Todolist from './Todolist.js';
 import UpdateUI from './UpdateUI.js';
 
 export default class Methods {
-  constructor(itemsToDelete = [], toogle = false, Listlength = 0) {
+  constructor(itemsToDelete = [], toogle = false) {
     this.itemsToDelete = itemsToDelete;
     this.toogle = toogle;
-    this.Listlength = Listlength;
+    this.Listlength = storageManager.getData().length;
   }
 
   markListForChanges = (li, id, listContainer) => {
