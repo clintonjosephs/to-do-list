@@ -2,7 +2,7 @@
 
 # A Todo App
 
-![Todos](assets/images/todo_list_filter.png)
+![Todos](assets/images/todo_list_refactor.png)
 
 "To-do list" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you manage them too!
 ## Built With

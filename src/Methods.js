@@ -38,7 +38,6 @@ export default class Methods {
       elipsis.classList.add('trash');
       deleteIcon.classList.remove('trash');
       taskDescription.contentEditable = true;
-      taskDescription.focus();
       taskDescription.classList.add('task-description-border');
 
     } else {
