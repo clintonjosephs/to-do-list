@@ -89,6 +89,7 @@ body {
   padding-left: 0;
   margin: 20rem 0;
   width: 450px;
+  border-radius: 10px;
 }
 
 .item {

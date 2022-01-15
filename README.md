@@ -2,15 +2,22 @@
 
 # A Todo App
 
+"To-do list" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you manage them too!
+
 ![Todos](assets/images/todo_list_refactor.png)
 
-"To-do list" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you manage them too!
+![Todos](assets/images/todo_list_drag.png)
+
+In this project, you will get a simple HTML list of To Do tasks. It is built using webpack and served by a webpack dev server. The list is styled according to the specifications listed by the minimalist website.
+
+The CRUD (create, update, delete) methods for the todo tasks are implemented. All the elements of the user interface are fully functional and the application is completed. You will also be able to mark task completion by selecting the corresponding checkbox (or undo it by unchecking the checkbox). The updated tasks list will be stored in localstorage.
+
 ## Built With
 
 - HTML
 - CSS
 - JavaScript
-- HTML& CSS & JavaScript Linters
+- HTML & CSS & JavaScript Linters
 - GIT
 - ES6
 - WebPack
@@ -46,7 +53,7 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Hat tip to anyone whose code was used
-- Inspiration
+- Minimlistic Website
 - Entire Microverse community
 
 ## 📝 License
