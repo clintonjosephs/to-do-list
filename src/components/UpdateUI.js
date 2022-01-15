@@ -1,5 +1,5 @@
-import { addDragEvent } from "./Dragdrop.js";
-import storageManager from "./Storage.js";
+import addDragEvent from './Dragdrop.js';
+import storageManager from './Storage.js';
 
 export default class UpdateUI {
   constructor(listElement, listObj) {
@@ -8,10 +8,10 @@ export default class UpdateUI {
   }
 
   static createListDisplay = (todo, empty = false) => {
-    const li = document.createElement("li");
-    li.classList.add("item");
+    const li = document.createElement('li');
+    li.classList.add('item');
     li.draggable = true;
-    li.setAttribute("data-index", todo.index);
+    li.setAttribute('data-index', todo.index);
     li.id = `list-${todo.index}`;
     if (!empty) {
       if (!todo.completed) {
@@ -45,5 +45,4 @@ export default class UpdateUI {
       this.showToDoElement.appendChild(UpdateUI.createListDisplay({}, true));
     }
   };
-
 }

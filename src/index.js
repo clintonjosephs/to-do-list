@@ -34,7 +34,7 @@ const submitEnter = (e) => {
     e.preventDefault();
     addToList();
   }
-}
+};
 
 addListBtn.addEventListener('click', addToList);
 listText.addEventListener('keyup', submitEnter);
