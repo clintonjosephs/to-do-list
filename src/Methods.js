@@ -19,6 +19,7 @@ export default class Methods {
     }
 
     const taskDescription = li.children[1];
+    Methods.taskKeyDown(taskDescription, id, listContainer)
     const elipsis = li.lastChild.children[0];
     const deleteIcon = li.lastChild.children[1];
     const index = this.itemsToDelete.indexOf(id);
@@ -39,13 +40,13 @@ export default class Methods {
       taskDescription.contentEditable = true;
       taskDescription.focus();
       taskDescription.classList.add('task-description-border');
+
     } else {
       li.classList.remove('markDelete');
       elipsis.classList.remove('trash');
       deleteIcon.classList.add('trash');
       taskDescription.contentEditable = false;
       taskDescription.classList.remove('task-description-border');
-
       Methods.editTaskDescription(taskDescription, id);
     }
     this.addListenerForRemove(deleteIcon, listContainer);
@@ -74,5 +75,16 @@ export default class Methods {
   static uIRefreshInstance = (listContainer) => {
     const ulManager = new UpdateUI(listContainer, storageManager.getData());
     ulManager.refreshUI();
+  }
+
+  static taskKeyDown(span, id, listContainer) {
+    span.addEventListener('keydown', (e) => {
+        if (e.keyCode === 13) {
+           e.preventDefault();
+           Methods.editTaskDescription(span, id);
+           Methods.uIRefreshInstance(listContainer);
+        }
+    });
+    
   }
 }

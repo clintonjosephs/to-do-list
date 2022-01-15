@@ -9,16 +9,18 @@ export default class UpdateUI {
   static createListDisplay = (todo, empty = false) => {
     const li = document.createElement('li');
     li.classList.add('item');
+    li.draggable = true;
+    li.setAttribute('data-index', todo.index);
     li.id = `list-${todo.index}`;
     if (!empty) {
       if (!todo.completed) {
         li.innerHTML = `<input type="checkbox" id="${todo.index}" class="task-box">
-        <span id="task-${todo.index}" contenteditable='false' class= "task-description"> ${todo.description} </span>
-        <button class="remove"> <i class="fa fa-ellipsis-v" aria-hidden="true"></i><i id ="trash-${todo.index}" class="trash fa fa-trash" aria-hidden="true"></i> </button>`;
+        <span id="task-${todo.index}" contenteditable='false' class= "task-description" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false"> ${todo.description} </span>
+        <button class="remove"> <i class="fa fa-grip-lines" aria-hidden="true"></i><i id ="trash-${todo.index}" class="trash fa fa-trash" aria-hidden="true"></i> </button>`;
       } else {
         li.innerHTML = `<input type="checkbox" id="${todo.index}" class="task-box" checked>
-        <span id="task-${todo.index}" contenteditable='false' class= "task-description completed"> ${todo.description} </span>
-        <button class="remove"> <i class="fa fa-ellipsis-v" aria-hidden="true"></i><i id ="trash-${todo.index}" class="trash fa fa-trash" aria-hidden="true"></i> </button>`;
+        <span id="task-${todo.index}" contenteditable='false' class= "task-description completed" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false"> ${todo.description} </span>
+        <button class="remove"> <i class="fa fa-grip-lines" aria-hidden="true"></i><i id ="trash-${todo.index}" class="trash fa fa-trash" aria-hidden="true"></i> </button>`;
       }
     } else {
       li.innerHTML = '<span class= "item">Nothing on the list!</span>';

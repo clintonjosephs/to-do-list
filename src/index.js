@@ -29,7 +29,15 @@ const addToList = () => {
   }
 };
 
+const submitEnter = (e) => {
+  if (e.keyCode === 13) {
+    e.preventDefault();
+    addToList();
+  }
+}
+
 addListBtn.addEventListener('click', addToList);
+listText.addEventListener('keyup', submitEnter);
 
 listContainer.addEventListener('click', (e) => {
   if (e.target.tagName === 'LI') {

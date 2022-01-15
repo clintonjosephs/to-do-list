@@ -3,7 +3,7 @@ html * {
 }
 
 body {
-  background-color: rgb(240, 238, 238);
+  background-color:peru;
   font-size: 18px;
 }
 
@@ -11,7 +11,6 @@ body {
   border-bottom: 1px solid lightgray;
   display: flex;
   gap: 1rem;
-  width: 50rem;
 }
 
 .task-description-border {
@@ -22,7 +21,7 @@ body {
 
 .task-description {
   display: inline-block;
-  max-width: 500px;
+  max-width: 300px;
   word-wrap: break-word;
 }
 
@@ -61,13 +60,12 @@ body {
   border-bottom: 1px solid lightgray;
   display: flex;
   gap: 1rem;
-  width: 50rem;
 }
 
 .input-task {
+  font-size: 20px;
+  width: 370px;
   border: none;
-  width: 46rem;
-  padding-left: 1rem;
 }
 
 ::placeholder {
@@ -90,6 +88,7 @@ body {
   box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
   padding-left: 0;
   margin: 15rem 0;
+  width: 450px;
 }
 
 .item {
@@ -100,7 +99,7 @@ body {
 
 .list {
   list-style: none;
-  max-height: 300px;
+  max-height: 400px;
 }
 
 .populated-list {
@@ -110,7 +109,6 @@ body {
 }
 
 .clear-all {
-  width: 50rem;
   text-align: center;
 }
 
