@@ -83,11 +83,11 @@ body {
   display: flex;
   flex-direction: column;
   position: absolute;
-  left: 40%;
+  left: 47%;
   transform: translate(-30%, -30%);
   box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
   padding-left: 0;
-  margin: 15rem 0;
+  margin: 20rem 0;
   width: 450px;
 }
 
@@ -100,6 +100,7 @@ body {
 .list {
   list-style: none;
   max-height: 400px;
+  overflow-y: scroll;
 }
 
 .populated-list {
@@ -154,7 +155,7 @@ body {
   transition: 100ms ease;
 }
 
-.markDelete {
+.markActive {
   background-color: bisque;
 }
 

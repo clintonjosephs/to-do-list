@@ -1,4 +1,5 @@
-import storageManager from './Storage.js';
+import { addDragEvent } from "./Dragdrop.js";
+import storageManager from "./Storage.js";
 
 export default class UpdateUI {
   constructor(listElement, listObj) {
@@ -7,10 +8,10 @@ export default class UpdateUI {
   }
 
   static createListDisplay = (todo, empty = false) => {
-    const li = document.createElement('li');
-    li.classList.add('item');
+    const li = document.createElement("li");
+    li.classList.add("item");
     li.draggable = true;
-    li.setAttribute('data-index', todo.index);
+    li.setAttribute("data-index", todo.index);
     li.id = `list-${todo.index}`;
     if (!empty) {
       if (!todo.completed) {
@@ -22,11 +23,13 @@ export default class UpdateUI {
         <span id="task-${todo.index}" contenteditable='false' class= "task-description completed" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false"> ${todo.description} </span>
         <button class="remove"> <i class="fa fa-grip-lines" aria-hidden="true"></i><i id ="trash-${todo.index}" class="trash fa fa-trash" aria-hidden="true"></i> </button>`;
       }
+      addDragEvent(li);
     } else {
       li.innerHTML = '<span class= "item">Nothing on the list!</span>';
     }
+
     return li;
-  }
+  };
 
   refreshUI = () => {
     this.todoList = storageManager.getData();
@@ -41,5 +44,6 @@ export default class UpdateUI {
     } else {
       this.showToDoElement.appendChild(UpdateUI.createListDisplay({}, true));
     }
-  }
+  };
+
 }
