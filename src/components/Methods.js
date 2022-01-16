@@ -19,7 +19,7 @@ export default class Methods {
     }
 
     const taskDescription = li.children[1];
-    Methods.taskKeyDown(taskDescription, id, listContainer)
+    Methods.taskKeyDown(taskDescription, id, listContainer);
     const elipsis = li.lastChild.children[0];
     const deleteIcon = li.lastChild.children[1];
     const index = this.itemsToDelete.indexOf(id);
@@ -34,14 +34,21 @@ export default class Methods {
     }
 
     if (this.toogle) {
-      li.classList.add('markDelete');
+      li.classList.add('markActive');
       elipsis.classList.add('trash');
       deleteIcon.classList.remove('trash');
       taskDescription.contentEditable = true;
       taskDescription.classList.add('task-description-border');
 
+      // the following code is used to set cursor to the end of the span tag on edit
+      const range = document.createRange();
+      range.selectNodeContents(taskDescription);
+      range.collapse(false);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
     } else {
-      li.classList.remove('markDelete');
+      li.classList.remove('markActive');
       elipsis.classList.remove('trash');
       deleteIcon.classList.add('trash');
       taskDescription.contentEditable = false;
@@ -78,12 +85,11 @@ export default class Methods {
 
   static taskKeyDown(span, id, listContainer) {
     span.addEventListener('keydown', (e) => {
-        if (e.keyCode === 13) {
-           e.preventDefault();
-           Methods.editTaskDescription(span, id);
-           Methods.uIRefreshInstance(listContainer);
-        }
+      if (e.keyCode === 13) {
+        e.preventDefault();
+        Methods.editTaskDescription(span, id);
+        Methods.uIRefreshInstance(listContainer);
+      }
     });
-    
   }
 }
