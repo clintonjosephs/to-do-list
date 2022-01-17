@@ -22,6 +22,8 @@ The CRUD (create, update, delete) methods for the todo tasks are implemented. Al
 - ES6
 - WebPack
 
+[LIVE DEMO LINK](https://clintonjosephs.github.io/to-do-list/)
+
 ## Set up locally
 
 - Open your terminal and run the following command: git clone https://github.com/clintonjosephs/to-do-list.git
