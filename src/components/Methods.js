@@ -49,7 +49,6 @@ export default class Methods {
       range.collapse(false);
       sel.removeAllRanges();
       sel.addRange(range);
-
     } else {
       li.classList.remove('markActive');
       elipsis.classList.remove('trash');

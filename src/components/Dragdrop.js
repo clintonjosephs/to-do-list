@@ -12,7 +12,6 @@ const swapItems = (from, to) => {
   const itemOne = toDoList[fromIndex];
   const itemTwo = toDoList[toIndex];
 
-
   const liFrom = listContainer.children[fromIndex].innerHTML;
   const liTo = listContainer.children[toIndex].innerHTML;
 
@@ -20,7 +19,6 @@ const swapItems = (from, to) => {
   toDoList[fromIndex].index = from;
   toDoList[toIndex] = itemOne;
   toDoList[toIndex].index = to;
-
 
   listContainer.children[fromIndex].innerHTML = liTo;
   listContainer.children[fromIndex].id = from;

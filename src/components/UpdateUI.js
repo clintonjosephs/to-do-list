@@ -1,5 +1,5 @@
-import addDragEvent from "./Dragdrop.js";
-import StorageManager from "./Storage.js";
+import addDragEvent from './Dragdrop.js';
+import StorageManager from './Storage.js';
 
 export default class UpdateUI {
   constructor(listElement, listObj) {
@@ -8,16 +8,16 @@ export default class UpdateUI {
   }
 
   static createListDisplay = (todo, empty = false) => {
-    const li = document.createElement("li");
-    li.classList.add("item");
+    const li = document.createElement('li');
+    li.classList.add('item');
     li.draggable = true;
-    li.setAttribute("data-index", todo.index);
+    li.setAttribute('data-index', todo.index);
     li.id = `list-${todo.index}`;
     if (!empty) {
       li.innerHTML = UpdateUI.buildListItem(
         todo.index,
         todo.description,
-        todo.completed
+        todo.completed,
       );
       addDragEvent(li);
     } else {
@@ -43,11 +43,11 @@ export default class UpdateUI {
   };
 
   static buildListItem(index, description, completed) {
-    let checked = "checked";
-    let transformText = "completed";
+    let checked = 'checked';
+    let transformText = 'completed';
     if (!completed) {
-      checked = "";
-      transformText = "";
+      checked = '';
+      transformText = '';
     }
     return `<input type="checkbox" id="${index}" class="task-box" ${checked}>
     <span id="task-${index}" contenteditable='false' class= "task-description ${transformText}" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false"> ${description} </span>
