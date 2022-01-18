@@ -1,4 +1,4 @@
-export default class storageManager {
+export default class StorageManager {
   static storeData = (todoList) => {
     localStorage.setItem('todoList', JSON.stringify(todoList));
   }

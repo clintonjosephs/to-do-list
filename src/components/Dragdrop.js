@@ -1,4 +1,4 @@
-import storageManager from './Storage.js';
+import StorageManager from './Storage.js';
 
 let dragStartIndex;
 
@@ -8,17 +8,19 @@ const swapItems = (from, to) => {
 
   const listContainer = document.querySelector('.list');
 
-  const toDoList = storageManager.getData();
+  const toDoList = StorageManager.getData();
   const itemOne = toDoList[fromIndex];
   const itemTwo = toDoList[toIndex];
+
+
+  const liFrom = listContainer.children[fromIndex].innerHTML;
+  const liTo = listContainer.children[toIndex].innerHTML;
 
   toDoList[fromIndex] = itemTwo;
   toDoList[fromIndex].index = from;
   toDoList[toIndex] = itemOne;
   toDoList[toIndex].index = to;
 
-  const liFrom = listContainer.children[fromIndex].innerHTML;
-  const liTo = listContainer.children[toIndex].innerHTML;
 
   listContainer.children[fromIndex].innerHTML = liTo;
   listContainer.children[fromIndex].id = from;
@@ -34,15 +36,15 @@ const swapItems = (from, to) => {
   listContainer.children[toIndex].children[1].id = `task-${to}`;
   listContainer.children[toIndex].children[2].children[1].id = `trash-${to}`;
 
-  storageManager.storeData(toDoList);
+  StorageManager.storeData(toDoList);
 };
 
 const dragStart = (item) => {
   dragStartIndex = +item.closest('li').getAttribute('data-index');
 };
 
-const dragOver = (e) => {
-  e.preventDefault();
+const dragOver = (event) => {
+  event.preventDefault();
 };
 
 const dragDrop = (item) => {

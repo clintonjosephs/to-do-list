@@ -1,12 +1,12 @@
-import storageManager from './Storage.js';
+import StorageManager from './Storage.js';
 import Methods from './Methods.js';
 import Todolist from './Todolist.js';
 
 const markCompleted = (checkbox, id, listContainer) => {
   const { checked } = checkbox;
-  const toDoList = storageManager.getData();
+  const toDoList = StorageManager.getData();
   toDoList[id - 1].completed = checked;
-  storageManager.storeData(toDoList);
+  StorageManager.storeData(toDoList);
   Methods.uIRefreshInstance(listContainer);
 };
 

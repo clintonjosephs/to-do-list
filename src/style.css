@@ -92,6 +92,10 @@ body {
   border-radius: 10px;
 }
 
+h1 {
+  font-size: 20px;
+}
+
 .item {
   position: relative;
   padding: 2rem 1rem;
