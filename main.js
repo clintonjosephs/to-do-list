@@ -169,7 +169,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ storageManager)\n/* harmony export */ });\nclass storageManager {\n  static storeData = (todoList) => {\n    localStorage.setItem('todoList', JSON.stringify(todoList));\n  }\n\n  static getData = () => (localStorage.getItem('todoList') ? JSON.parse(localStorage.getItem('todoList')) : [])\n}\n\n\n//# sourceURL=webpack://to-do-list/./src/components/Storage.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ StorageManager)\n/* harmony export */ });\nclass StorageManager {\n  static storeData = (todoList) => {\n    localStorage.setItem('todoList', JSON.stringify(todoList));\n  }\n\n  static getData = () => (localStorage.getItem('todoList') ? JSON.parse(localStorage.getItem('todoList')) : [])\n}\n\n\n//# sourceURL=webpack://to-do-list/./src/components/Storage.js?");
 
 /***/ }),
 
