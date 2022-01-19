@@ -5,6 +5,7 @@
 import StorageManager from '../Storage.js';
 import Todolist from '../Todolist.js';
 import UlManager from '../UpdateUI.js';
+import domSample from './DomSample.js';
 
 describe('Saving and Displaying li from localStorage', () => {
   test('Save a new task in localStorage', () => {
@@ -21,12 +22,7 @@ describe('Saving and Displaying li from localStorage', () => {
   });
 
   test('Display only one item added to list', () => {
-    document.body.innerHTML = '<div>'
-      + '<input type="text" class="input-task" placeholder="add task to your list ..."></div>'
-      + '<button type="button" id="add" class="fa-input"><i class="fas fa-level-down-alt fa-rotate-90"></i></button>'
-      + '<ul class="list" id="taskList">'
-      + '</ul>'
-      + '</li>';
+    document.body.innerHTML = domSample();
     const data = StorageManager.getData();
     const todos = document.querySelector('.list');
     const manageUI = new UlManager(todos, data);
@@ -35,12 +31,7 @@ describe('Saving and Displaying li from localStorage', () => {
   });
 
   test('Testing List item from DOM', () => {
-    document.body.innerHTML = '<div>'
-      + '<input type="text" class="input-task" placeholder="add task to your list ..."></div>'
-      + '<button type="button" id="add" class="fa-input"><i class="fas fa-level-down-alt fa-rotate-90"></i></button>'
-      + '<ul class="list" id="taskList">'
-      + '</ul>'
-      + '</li>';
+    document.body.innerHTML = domSample();
     const data = StorageManager.getData();
     const todos = document.querySelector('.list');
 

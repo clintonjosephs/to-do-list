@@ -67,4 +67,4 @@ const addDragEvent = (item) => {
   item.addEventListener('dragleave', () => dragLeave(item));
 };
 
-export default addDragEvent;
+export { addDragEvent, swapItems };
