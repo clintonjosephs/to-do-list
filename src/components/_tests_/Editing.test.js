@@ -6,9 +6,10 @@ import StorageManager from '../Storage.js';
 import Todolist from '../Todolist.js';
 import UlManager from '../UpdateUI.js';
 import Methods from '../Methods.js';
+import domSample from './DomSample.js';
 
 describe('Editing a task', () => {
-  test('Editiong a new task in localStorage And Update the description', () => {
+  test('Editting a new task in localStorage And Update the description', () => {
     Todolist.add('Elevator pitch');
     let data = StorageManager.getData();
     const result = [
@@ -35,13 +36,8 @@ describe('Editing a task', () => {
     expect(data).toEqual(result2);
   });
 
-  test('Save a new task in localStorage And Update the description in DOM', () => {
-    document.body.innerHTML = '<div>'
-      + '<input type="text" class="input-task" placeholder="add task to your list ..."></div>'
-      + '<button type="button" id="add" class="fa-input"><i class="fas fa-level-down-alt fa-rotate-90"></i></button>'
-      + '<ul class="list" id="taskList">'
-      + '</ul>'
-      + '</li>';
+  test('Editing a new task in localStorage And Update the description in DOM', () => {
+    document.body.innerHTML = domSample();
 
     Todolist.add('Elevator pitch');
 
@@ -52,10 +48,10 @@ describe('Editing a task', () => {
     manageUI.refreshUI();
 
     const newSpan = document.querySelector('#task-1');
-    newSpan.textContent = 'Test';
+    newSpan.textContent = 'Buy groceries';
     Methods.editTaskDescription(newSpan, 1);
 
     const task = document.body.querySelector('#task-1');
-    expect(task.innerHTML).toBe('Test');
+    expect(task.innerHTML).toBe('Buy groceries');
   });
 });

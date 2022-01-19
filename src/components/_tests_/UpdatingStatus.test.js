@@ -6,6 +6,7 @@ import StorageManager from '../Storage.js';
 import Todolist from '../Todolist.js';
 import UlManager from '../UpdateUI.js';
 import { markCompleted } from '../Completed.js';
+import domSample from './DomSample.js';
 
 describe('Updated status ', () => {
   test('Updated status in the localStorage', () => {
@@ -35,12 +36,7 @@ describe('Updated status ', () => {
   });
 
   test('Updated status in the DOM', () => {
-    document.body.innerHTML = '<div>'
-      + '<input type="text" class="input-task" placeholder="add task to your list ..."></div>'
-      + '<button type="button" id="add" class="fa-input"><i class="fas fa-level-down-alt fa-rotate-90"></i></button>'
-      + '<ul class="list" id="taskList">'
-      + '</ul>'
-      + '</li>';
+    document.body.innerHTML = domSample();
 
     Todolist.add('Elevator pitch');
 
