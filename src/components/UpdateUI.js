@@ -1,4 +1,4 @@
-import addDragEvent from './Dragdrop.js';
+import { addDragEvent } from './Dragdrop.js';
 import StorageManager from './Storage.js';
 
 export default class UpdateUI {

@@ -21,6 +21,7 @@ The CRUD (create, update, delete) methods for the todo tasks are implemented. Al
 - GIT
 - ES6
 - WebPack
+- JEST
 
 [LIVE DEMO LINK](https://clintonjosephs.github.io/to-do-list/)
 
@@ -29,6 +30,7 @@ The CRUD (create, update, delete) methods for the todo tasks are implemented. Al
 - Open your terminal and run the following command: git clone https://github.com/clintonjosephs/to-do-list.git
 - Run the command "npm install"
 - Run the command "npm run build"
+- Run the command "npm test"
 - Run the command "npm run start"
 
 Once you completed this steps you should see the app running at: http://localhost:8080/ in your browser.
@@ -39,8 +41,16 @@ Once you completed this steps you should see the app running at: http://localhos
 
 - Location: Nigeria
 - GitHub: [@clintonjosephs](https://github.com/clintonjosephs)
-- Twitter: [@clintonmbonu\_](https://twitter.com/clintonmbonu_)
+- Twitter: [@clintonmbonu_](https://twitter.com/clintonmbonu_)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/clinton-mbonu)
+
+👤 **JihaneH**
+
+- Location: France
+- GitHub: [@jihaneH](https://github.com/jihaneH)
+- Twitter: [@jihaneH](https://twitter.com/jijihaddad)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/jihane-haddad/)
+
 
 ## 🤝 Contributing
 
