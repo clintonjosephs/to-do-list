@@ -23,7 +23,7 @@ export default class Methods {
       this.itemsToDelete.length = 0;
     }
 
-    Methods.taskKeyDown(taskDescription, id);
+    this.taskKeyDown(taskDescription, id);
 
     if (index !== -1) {
       this.toogle = !this.toogle;
@@ -55,7 +55,7 @@ export default class Methods {
       deleteIcon.classList.add('trash');
       taskDescription.contentEditable = false;
       taskDescription.classList.remove('task-description-border');
-      Methods.editTaskDescription(taskDescription, id);
+      this.editTaskDescription(taskDescription, id);
     }
     this.addListenerForRemove(deleteIcon);
     this.toogle = true;
@@ -69,7 +69,7 @@ export default class Methods {
     });
   }
 
-  static editTaskDescription = (taskDescriptionSpan, id) => {
+  editTaskDescription = (taskDescriptionSpan, id) => {
     const taskDescription = taskDescriptionSpan.textContent;
     const toDoList = StorageManager.getData();
     if (taskDescription !== '') {
@@ -78,13 +78,14 @@ export default class Methods {
     } else {
       taskDescriptionSpan.textContent = toDoList[id - 1].description;
     }
+    this.itemsToDelete.length = 0;
   }
 
-  static taskKeyDown(taskDescriptionSpan, id) {
+ taskKeyDown(taskDescriptionSpan, id) {
     taskDescriptionSpan.addEventListener('keydown', (event) => {
       if (event.keyCode === 13) {
         event.preventDefault();
-        Methods.editTaskDescription(taskDescriptionSpan, id);
+        this.editTaskDescription(taskDescriptionSpan, id);
         UpdateUI.refreshUI();
       }
     });
