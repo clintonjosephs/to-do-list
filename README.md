@@ -29,7 +29,7 @@ The CRUD (create, update, delete) methods for the todo tasks are implemented. Al
 - Open your terminal and run the following command: git clone https://github.com/clintonjosephs/to-do-list.git
 - Run the command "npm install"
 - Run the command "npm run build"
-- Run the command "npm test"
+- Run the command " npm test "
 - Run the command "npm run start"
 
 Once you completed this steps you should see the app running at: http://localhost:8080/ in your browser.
