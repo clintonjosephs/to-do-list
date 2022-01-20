@@ -11,7 +11,7 @@ const reOrderArray = (from, to) => {
   if (toIndex >= todoList.length) {
     let k = toIndex - todoList.length + 1;
     while (k) {
-      k=-1;
+      k = -1;
       todoList.push(undefined);
     }
   }
