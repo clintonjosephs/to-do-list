@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>27/27</span>
+                <span class='fraction'>30/35</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>4/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>27/27</span>
+                <span class='fraction'>30/30</span>
             </div>
         
             
@@ -119,13 +119,22 @@
 <a name='L54'></a><a href='#L54'>54</a>
 <a name='L55'></a><a href='#L55'>55</a>
 <a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
@@ -141,6 +150,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-yes">29x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -148,10 +161,11 @@
 <span class="cline-any cline-yes">30x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">20x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">14x</span>
@@ -175,28 +189,34 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { addDragEvent } from './Dragdrop.js';
-import StorageManager from './Storage.js';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {
+  dragLeave,
+  dragEnter,
+  dragDrop,
+  dragOver,
+  dragStart,
+} from "./Dragdrop.js";
+import StorageManager from "./Storage.js";
 &nbsp;
 export default class UpdateUI {
-  constructor(listElement, listObj) {
-    this.showToDoElement = listElement;
-    this.todoList = listObj;
-  }
 &nbsp;
   static createListDisplay = (todo, empty = false) =&gt; {
-    const li = document.createElement('li');
-    li.classList.add('item');
+    const li = document.createElement("li");
+    li.classList.add("item");
     li.draggable = true;
-    li.setAttribute('data-index', todo.index);
+    li.setAttribute("data-index", todo.index);
     li.id = `list-${todo.index}`;
     if (!empty) {
       li.innerHTML = UpdateUI.buildListItem(
         todo.index,
         todo.description,
-        todo.completed,
+        todo.completed
       );
-      addDragEvent(li);
+      li.addEventListener("dragstart", <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >dragStart(li))</span>;
+      li.addEventListener("dragover", dragOver);
+      li.addEventListener("drop", <span class="fstat-no" title="function not covered" >()</span> =&gt; { <span class="cstat-no" title="statement not covered" >dragDrop(li); <span class="cstat-no" title="statement not covered" ></span>UpdateUI.refreshUI() </span>});
+      li.addEventListener("dragenter", <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >dragEnter(li))</span>;
+      li.addEventListener("dragleave", <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >dragLeave(li))</span>;
     } else {
       li.innerHTML = '&lt;span class= "item"&gt;Nothing on the list!&lt;/span&gt;';
     }
@@ -204,27 +224,28 @@ export default class UpdateUI {
     return li;
   };
 &nbsp;
-  refreshUI = () =&gt; {
+  static refreshUI = () =&gt; {
+    const listContainer = document.querySelector('.list');
     this.todoList = StorageManager.getData();
-    while (this.showToDoElement.firstChild) {
-      this.showToDoElement.removeChild(this.showToDoElement.firstChild);
+    while (listContainer.firstChild) {
+      listContainer.removeChild(listContainer.firstChild);
     }
 &nbsp;
     if (this.todoList.length &gt; 0) {
       this.todoList.forEach((todo) =&gt; {
-        this.showToDoElement.appendChild(UpdateUI.createListDisplay(todo));
+        listContainer.appendChild(UpdateUI.createListDisplay(todo));
       });
     } else {
-      this.showToDoElement.appendChild(UpdateUI.createListDisplay({}, true));
+      listContainer.appendChild(UpdateUI.createListDisplay({}, true));
     }
   };
 &nbsp;
   static buildListItem(index, description, completed) {
-    let checked = 'checked';
-    let transformText = 'completed';
+    let checked = "checked";
+    let transformText = "completed";
     if (!completed) {
-      checked = '';
-      transformText = '';
+      checked = "";
+      transformText = "";
     }
     return `&lt;input type="checkbox" id="${index}" class="task-box" ${checked}&gt;
     &lt;span id="task-${index}" contenteditable='false' class= "task-description ${transformText}" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false"&gt; ${description} &lt;/span&gt;
@@ -238,7 +259,7 @@ export default class UpdateUI {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu Jan 20 2022 09:02:16 GMT+0100 (West Africa Standard Time)
+                at Thu Jan 20 2022 23:24:22 GMT+0100 (West Africa Standard Time)
             </div>
         <script src="../prettify.js"></script>
         <script>

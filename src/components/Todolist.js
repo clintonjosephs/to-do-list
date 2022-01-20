@@ -21,12 +21,10 @@ export default class Todolist {
     } else {
       todoList = todoList.filter((todo) => todo.completed !== true);
     }
-
     Todolist.updateToDoItemIndex(todoList);
   };
 
   static updateToDoItemIndex = (todoList) => {
-    // MAP OPERATOR
     todoList.forEach((todo, index) => {
       todo.index = index + 1;
     });

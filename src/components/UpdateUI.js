@@ -1,12 +1,13 @@
-import { addDragEvent } from './Dragdrop.js';
+import {
+  dragLeave,
+  dragEnter,
+  dragDrop,
+  dragOver,
+  dragStart,
+} from './Dragdrop.js';
 import StorageManager from './Storage.js';
 
 export default class UpdateUI {
-  constructor(listElement, listObj) {
-    this.showToDoElement = listElement;
-    this.todoList = listObj;
-  }
-
   static createListDisplay = (todo, empty = false) => {
     const li = document.createElement('li');
     li.classList.add('item');
@@ -19,7 +20,11 @@ export default class UpdateUI {
         todo.description,
         todo.completed,
       );
-      addDragEvent(li);
+      li.addEventListener('dragstart', () => dragStart(li));
+      li.addEventListener('dragover', dragOver);
+      li.addEventListener('drop', () => { dragDrop(li); UpdateUI.refreshUI(); });
+      li.addEventListener('dragenter', () => dragEnter(li));
+      li.addEventListener('dragleave', () => dragLeave(li));
     } else {
       li.innerHTML = '<span class= "item">Nothing on the list!</span>';
     }
@@ -27,18 +32,19 @@ export default class UpdateUI {
     return li;
   };
 
-  refreshUI = () => {
+  static refreshUI = () => {
+    const listContainer = document.querySelector('.list');
     this.todoList = StorageManager.getData();
-    while (this.showToDoElement.firstChild) {
-      this.showToDoElement.removeChild(this.showToDoElement.firstChild);
+    while (listContainer.firstChild) {
+      listContainer.removeChild(listContainer.firstChild);
     }
 
     if (this.todoList.length > 0) {
       this.todoList.forEach((todo) => {
-        this.showToDoElement.appendChild(UpdateUI.createListDisplay(todo));
+        listContainer.appendChild(UpdateUI.createListDisplay(todo));
       });
     } else {
-      this.showToDoElement.appendChild(UpdateUI.createListDisplay({}, true));
+      listContainer.appendChild(UpdateUI.createListDisplay({}, true));
     }
   };
 

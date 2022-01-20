@@ -9,7 +9,7 @@ export default class Methods {
     this.listLength = StorageManager.getData().length;
   }
 
-  markListForChanges = (li, id, listContainer) => {
+  markListForChanges = (li, id) => {
     /* line 13 - 17 is for cases where a user selects items for delete */
     /* and goes ahead to add to the list */
 
@@ -23,7 +23,7 @@ export default class Methods {
       this.itemsToDelete.length = 0;
     }
 
-    Methods.taskKeyDown(taskDescription, id, listContainer);
+    Methods.taskKeyDown(taskDescription, id);
 
     if (index !== -1) {
       this.toogle = !this.toogle;
@@ -49,7 +49,6 @@ export default class Methods {
       range.collapse(false);
       sel.removeAllRanges();
       sel.addRange(range);
-      
     } else {
       li.classList.remove('markActive');
       elipsis.classList.remove('trash');
@@ -58,15 +57,15 @@ export default class Methods {
       taskDescription.classList.remove('task-description-border');
       Methods.editTaskDescription(taskDescription, id);
     }
-    this.addListenerForRemove(deleteIcon, listContainer);
+    this.addListenerForRemove(deleteIcon);
     this.toogle = true;
   }
 
-  addListenerForRemove = (deleteBtn, listContainer) => {
+  addListenerForRemove = (deleteBtn) => {
     deleteBtn.addEventListener('click', () => {
       Todolist.remove(this.itemsToDelete);
       this.itemsToDelete.length = 0;
-      Methods.uIRefreshInstance(listContainer);
+      UpdateUI.refreshUI();
     });
   }
 
@@ -81,17 +80,12 @@ export default class Methods {
     }
   }
 
-  static uIRefreshInstance = (listContainer) => {
-    const ulManager = new UpdateUI(listContainer, StorageManager.getData());
-    ulManager.refreshUI();
-  }
-
-  static taskKeyDown(taskDescriptionSpan, id, listContainer) {
+  static taskKeyDown(taskDescriptionSpan, id) {
     taskDescriptionSpan.addEventListener('keydown', (event) => {
       if (event.keyCode === 13) {
         event.preventDefault();
         Methods.editTaskDescription(taskDescriptionSpan, id);
-        Methods.uIRefreshInstance(listContainer);
+        UpdateUI.refreshUI();
       }
     });
   }

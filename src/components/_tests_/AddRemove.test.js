@@ -27,10 +27,9 @@ describe('Saving and Displaying li from localStorage', () => {
       + '<ul class="list" id="taskList">'
       + '</ul>'
       + '</li>';
-    const data = StorageManager.getData();
+
     const todos = document.querySelector('.list');
-    const manageUI = new UlManager(todos, data);
-    manageUI.refreshUI();
+    UlManager.refreshUI();
     expect(todos.childElementCount).toBe(1);
   });
 
@@ -41,11 +40,7 @@ describe('Saving and Displaying li from localStorage', () => {
       + '<ul class="list" id="taskList">'
       + '</ul>'
       + '</li>';
-    const data = StorageManager.getData();
-    const todos = document.querySelector('.list');
-
-    const manageUI = new UlManager(todos, data);
-    manageUI.refreshUI();
+    UlManager.refreshUI();
     const task = document.querySelector('#task-1');
 
     expect(task.innerHTML).toBe(' Elevator pitch ');

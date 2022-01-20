@@ -10,7 +10,7 @@ import domSample from './DomSample.js';
 
 describe('Clear all ', () => {
   test('Clear all completed tasks in the localStorage', () => {
-    const listContainer = document.createElement('ul');
+    document.body.innerHTML = domSample();
 
     Todolist.add('Elevator pitch', true);
     Todolist.add('Meet up with standup team 5:00pm utc+1');
@@ -18,15 +18,15 @@ describe('Clear all ', () => {
 
     let data = StorageManager.getData();
     expect(data.length).toEqual(3);
-    clearCompleted(listContainer);
+    clearCompleted();
 
     data = StorageManager.getData();
     expect(data.length).toEqual(2);
 
-    markCompleted({ checked: true }, 1, listContainer);
-    markCompleted({ checked: true }, 2, listContainer);
+    markCompleted({ checked: true }, 1);
+    markCompleted({ checked: true }, 2);
 
-    clearCompleted(listContainer);
+    clearCompleted();
     data = StorageManager.getData();
     expect(data.length).toEqual(0);
   });
@@ -41,8 +41,7 @@ describe('Clear all ', () => {
     let data = StorageManager.getData();
     const todos = document.querySelector('.list');
 
-    const manageUI = new UlManager(todos, data);
-    manageUI.refreshUI();
+    UlManager.refreshUI();
 
     markCompleted({ checked: true }, 1, todos);
     clearCompleted(todos);
