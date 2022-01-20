@@ -81,7 +81,7 @@ export default class Methods {
     this.itemsToDelete.length = 0;
   }
 
- taskKeyDown(taskDescriptionSpan, id) {
+  taskKeyDown(taskDescriptionSpan, id) {
     taskDescriptionSpan.addEventListener('keydown', (event) => {
       if (event.keyCode === 13) {
         event.preventDefault();
