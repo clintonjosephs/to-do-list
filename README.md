@@ -4,7 +4,7 @@
 
 "To-do list" is a tool that helps to organize your day. It simply lists the things that you need to do and allows you manage them too!
 
-![Todos](assets/images/todo_present.gif)
+![Todos](assets/images/todo_presentation.gif)
 
 
 In this project, you will get a simple HTML list of To Do tasks. It is built using webpack and served by a webpack dev server. The list is styled according to the specifications listed by the minimalist website.
