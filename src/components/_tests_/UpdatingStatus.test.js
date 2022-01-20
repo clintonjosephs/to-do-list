@@ -10,6 +10,8 @@ import domSample from './DomSample.js';
 
 describe('Updated status ', () => {
   test('Updated status in the localStorage', () => {
+    document.body.innerHTML = domSample();
+
     Todolist.add('Elevator pitch');
     const data = StorageManager.getData();
     const result = [
@@ -40,11 +42,9 @@ describe('Updated status ', () => {
 
     Todolist.add('Elevator pitch');
 
-    const data = StorageManager.getData();
     const todos = document.querySelector('.list');
 
-    const manageUI = new UlManager(todos, data);
-    manageUI.refreshUI();
+    UlManager.refreshUI();
     const task = document.querySelector('#list-1 input');
 
     markCompleted({ checked: true }, 1, todos);

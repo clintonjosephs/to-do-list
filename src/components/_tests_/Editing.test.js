@@ -41,11 +41,7 @@ describe('Editing a task', () => {
 
     Todolist.add('Elevator pitch');
 
-    const data = StorageManager.getData();
-    const todos = document.querySelector('.list');
-
-    const manageUI = new UlManager(todos, data);
-    manageUI.refreshUI();
+    UlManager.refreshUI();
 
     const newSpan = document.querySelector('#task-1');
     newSpan.textContent = 'Buy groceries';
