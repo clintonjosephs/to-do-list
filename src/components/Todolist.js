@@ -26,6 +26,7 @@ export default class Todolist {
   };
 
   static updateToDoItemIndex = (todoList) => {
+    // MAP OPERATOR
     todoList.forEach((todo, index) => {
       todo.index = index + 1;
     });
