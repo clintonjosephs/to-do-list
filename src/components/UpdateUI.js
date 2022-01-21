@@ -57,6 +57,6 @@ export default class UpdateUI {
     }
     return `<input type="checkbox" id="${index}" class="task-box" ${checked}>
     <span id="task-${index}" contenteditable='false' class= "task-description ${transformText}" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false"> ${description} </span>
-    <button class="remove"> <i class="fa fa-grip-lines" aria-hidden="true"></i><i id ="trash-${index}" class="trash fa fa-trash" aria-hidden="true"></i> </button>`;
+    <button class="remove"> <i class="fa fa-ellipsis-v" aria-hidden="true"></i><i id ="trash-${index}" class="trash fa fa-trash" aria-hidden="true"></i> </button>`;
   }
 }

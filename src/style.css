@@ -186,3 +186,10 @@ h1 {
   padding-right: 3%;
   padding-right: 2%;
 }
+
+input[type="checkbox"] {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  outline: none;
+}
