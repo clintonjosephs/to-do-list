@@ -193,9 +193,3 @@ input[type="checkbox"] {
   cursor: pointer;
   outline: none;
 }
-
-.dragMoving {
-  background: #fff;
-  border-radius: 5px;
-  border-color: #c0c5f7;
-}
