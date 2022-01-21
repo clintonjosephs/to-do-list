@@ -20,6 +20,7 @@ const reOrderArray = (from, to) => {
 };
 
 const dragStart = (item) => {
+  item.classList.add('dragMoving');
   dragStartIndex = +item.closest('li').getAttribute('data-index');
 };
 
