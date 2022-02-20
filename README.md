@@ -7,7 +7,7 @@
 ![Todos](assets/images/todo_presentation.gif)
 
 
-In this project, you will get a simple HTML list of To Do tasks. It is built using webpack and served by a webpack dev server. The list is styled according to the specifications listed by the minimalist website.
+The CRUD (create, update, delete) methods for the todo tasks are implemented, including drag and drop to re-arrange the order of the list. All the elements of the user interface are fully functional and the application is completed. You will also be able to mark task completion by selecting the corresponding checkbox (or undo it by unchecking the checkbox). The updated tasks list will be stored in localstorage.
 
 The CRUD (create, update, delete) methods for the todo tasks are implemented. All the elements of the user interface are fully functional and the application is completed. You will also be able to mark task completion by selecting the corresponding checkbox (or undo it by unchecking the checkbox). The updated tasks list will be stored in localstorage.
 
